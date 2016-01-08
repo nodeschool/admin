@@ -1,0 +1,40 @@
+{
+  "name": "nodeschool-chapter",
+  "version": "0.0.1",
+  "description": "CLI tool for setting up and maintaining a nodeschool chapter.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "standard",
+    "postinstall": "echo \"Thank you for installing `nodeschool-chapter`!\""
+  },
+  "bin": "bin/nodeschool-chapter",
+  "keywords": [
+    "nodeschool",
+    "chapter",
+    "cli",
+    "community"
+  ],
+  "author": "Martin Heidegger <martin.heidegger@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "tape": "^4.4.0"
+  },
+  "dependencies": {
+    "callback-stream": "^1.1.0",
+    "child-process-promise": "^1.1.0",
+    "deep-clone": "^1.1.0",
+    "git-url-parse": "^4.2.0",
+    "hyperquest": "^1.2.0",
+    "image-size": "^0.4.0",
+    "inquirer": "^0.11.1",
+    "iso3166-1": "^0.2.5",
+    "joi": "^7.1.0",
+    "mocha": "^2.3.4",
+    "node-geo": "^0.1.0",
+    "nodegit": "^0.6.3",
+    "nopt": "^3.0.6",
+    "semver-compare": "^1.0.0",
+    "stream-to-promise": "^1.1.0"
+  }
+}

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+var nopt = require('nopt')
+var log = require('npmlog')
+var path = require('path')
+var fs = require('fs')
+var input = nopt({
+  loglevel: ['info', 'silly', 'verbose', 'http', 'warn', 'error'],
+  chapter: String,
+  path: path
+}, {
+  l: 'loglevel',
+  p: 'path'
+}, process.argv, 2)
+
+input.path = input.path || process.cwd()
+log.level = input.loglevel || 'info'
+
+console.log('')
+process.stdout.write(fs.readFileSync(path.resolve(__dirname, 'nodeschool-logo.utf8.art')))
+process.stdout.write(fs.readFileSync(path.resolve(__dirname, 'nodeschool-chapter.utf8.art')))
+console.log('')
+
+require('..').run(input)
+  .then(function (output) {
+    if (output !== null && output !== undefined) {
+      return 
+    }
+    if (typeof output !== 'string') {
+      output = JSON.stringify(output, null, 2)
+    }
+  })
+  .then(function () {
+    log.info('hurray', 'All seems to have went well!')
+  })
+  .catch(function (e) {
+    if (e.type) {
+      log.error(e.type, e.message)
+    } else if (e.stack) {
+      log.error('exception', e.stack)
+    } else {
+      log.error('error', e)
+    }
+    process.exit(1)
+  })
