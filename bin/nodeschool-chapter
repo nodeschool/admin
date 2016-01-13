@@ -2,10 +2,12 @@
 var nopt = require('nopt')
 var log = require('npmlog')
 var path = require('path')
-var fs = require('fs')
 var input = nopt({
   loglevel: ['info', 'silly', 'verbose', 'http', 'warn', 'error'],
   chapter: String,
+  'gh-client-id': String,
+  'gh-client-secret': String,
+  'gh-token': String,
   path: path
 }, {
   l: 'loglevel',
@@ -15,30 +17,38 @@ var input = nopt({
 input.path = input.path || process.cwd()
 log.level = input.loglevel || 'info'
 
-console.log('')
-process.stdout.write(fs.readFileSync(path.resolve(__dirname, 'nodeschool-logo.utf8.art')))
-process.stdout.write(fs.readFileSync(path.resolve(__dirname, 'nodeschool-chapter.utf8.art')))
-console.log('')
+if (!input['gh-client-id'] && process.env.GITHUB_CLIENT_SECRET && process.env.GITHUB_CLIENT_ID) {
+  input['gh-client-id'] = process.env.GITHUB_CLIENT_ID
+  input['gh-client-secret'] = process.env.GITHUB_CLIENT_SECRET
+}
+
+if (!input['gh-token'] && process.env.GITHUB_TOKEN) {
+  input['gh-token'] = process.env.GITHUB_TOKEN
+}
 
 require('..').run(input)
   .then(function (output) {
-    if (output !== null && output !== undefined) {
-      return 
+    if (output === null || output === undefined) {
+      return log.info('hurray', 'All seems to have went well!\nPlease come back soon (^_^)/')
     }
     if (typeof output !== 'string') {
       output = JSON.stringify(output, null, 2)
     }
-  })
-  .then(function () {
-    log.info('hurray', 'All seems to have went well!')
+    console.log(output)
   })
   .catch(function (e) {
     if (e.type) {
+      if (e.type === 'user') {
+        log.warn(e.type, e.message)
+        log.info('oh!', 'Good-Bye!\nPlease come back soon (^_^)/')
+        process.exit()
+      }
       log.error(e.type, e.message)
     } else if (e.stack) {
       log.error('exception', e.stack)
     } else {
       log.error('error', e)
     }
+    log.error('oh!', '\nSomething went wrong, sorry for that. (-_-\')\n' )
     process.exit(1)
   })

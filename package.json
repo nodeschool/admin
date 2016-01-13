@@ -21,9 +21,11 @@
     "tape": "^4.4.0"
   },
   "dependencies": {
+    "bluebird": "^3.1.1",
     "callback-stream": "^1.1.0",
     "child-process-promise": "^1.1.0",
     "deep-clone": "^1.1.0",
+    "figlet": "^1.1.1",
     "git-url-parse": "^4.2.0",
     "hyperquest": "^1.2.0",
     "image-size": "^0.4.0",
