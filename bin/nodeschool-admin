@@ -39,12 +39,14 @@ if (!input['gh-token'] && process.env.GITHUB_TOKEN) {
 require('..').run(input)
   .then(function (output) {
     if (output === null || output === undefined) {
-      return log.info('hurray', 'All seems to have went well!\nPlease come back soon (^_^)/')
+      log.info('hurray', 'All seems to have went well!\nPlease come back soon (^_^)')
+      return process.exit()
     }
     if (typeof output !== 'string') {
       output = JSON.stringify(output, null, 2)
     }
     console.log(output)
+    return process.exit()
   })
   .catch(function (e) {
     if (e.type) {

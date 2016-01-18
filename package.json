@@ -8,6 +8,11 @@
     "start": "node bin/nodeschool-admin",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
+  "standard": {
+    "ignore": [
+      "/lib/util/eventTime.js"
+    ]
+  },
   "bin": {
     "nodeschool-admin": "bin/nodeschool-admin"
   },
@@ -41,7 +46,8 @@
     "nopt": "^3.0.6",
     "npmlog": "^2.0.0",
     "semver-compare": "^1.0.0",
-    "tz-lookup": "^6.0.2"
+    "tz-lookup": "^6.0.2",
+    "progress": "^1.1.8"
   },
   "repository": {
     "type": "git",
