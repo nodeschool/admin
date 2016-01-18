@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "standard",
-    "postinstall": "echo \"Thank you for installing `nodeschool-chapter`!\""
+    "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
   "bin": {
     "nodeschool-admin": "bin/nodeschool-admin"
