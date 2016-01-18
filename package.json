@@ -1,7 +1,7 @@
 {
   "name": "nodeschool-admin",
   "version": "0.0.1",
-  "description": "CLI tool for setting up and maintaining a nodeschool chapter.",
+  "description": "CLI tool for setting up and maintaining a nodeschool chapters and other things.",
   "main": "./lib/index.js",
   "scripts": {
     "test": "standard",
