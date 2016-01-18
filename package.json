@@ -7,7 +7,9 @@
     "test": "standard",
     "postinstall": "echo \"Thank you for installing `nodeschool-chapter`!\""
   },
-  "bin": "bin/nodeschool-admin",
+  "bin": {
+    "nodeschool-admin": "bin/nodeschool-admin"
+  },
   "keywords": [
     "nodeschool",
     "chapter",
@@ -42,5 +44,13 @@
     "stream-to-promise": "^1.1.0",
     "tz-lookup": "^6.0.2",
     "zoneinfo": "^0.1.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodeschool/admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodeschool/admin/issues"
+  },
+  "homepage": "https://github.com/nodeschool/admin#readme"
 }
