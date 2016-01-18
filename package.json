@@ -7,6 +7,11 @@
     "test": "standard",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
+  "standard": {
+    "ignore": [
+      "/lib/util/eventTime.js"
+    ]
+  },
   "bin": {
     "nodeschool-admin": "bin/nodeschool-admin"
   },

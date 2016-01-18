@@ -53,7 +53,7 @@ exports.byGroup = {
     'TT',
     'UY',
     'VG',
-    'VI',
+    'VI'
   ],
   'South Pacific': [
     'AS',
@@ -88,13 +88,13 @@ exports.byGroup = {
     'TV',
     'UM',
     'VU',
-    'WF',
+    'WF'
   ],
   'North America': [
     'CA',
     'GL',
     'PM',
-    'US',
+    'US'
   ],
   'Asia': [
     'AM',
@@ -126,7 +126,7 @@ exports.byGroup = {
     'TM',
     'UZ',
     'VE',
-    'VN',
+    'VN'
   ],
   'Africa': [
     'DZ',
@@ -185,7 +185,7 @@ exports.byGroup = {
     'EH',
     'YE',
     'ZM',
-    'ZW',
+    'ZW'
   ],
   'Europe': [
     'AL',
@@ -239,7 +239,7 @@ exports.byGroup = {
     'TR',
     'UA',
     'GB',
-    'AX',
+    'AX'
   ],
   'Middle East': [
     'AF',
@@ -258,14 +258,14 @@ exports.byGroup = {
     'QA',
     'SA',
     'SY',
-    'AE',
+    'AE'
   ],
   'Southpole': [
     'AQ',
     'BV',
     'TF',
     'HM',
-    'GS',
+    'GS'
   ]
 }
 exports.byCountry = Object.keys(exports.byGroup).reduce(function (byCountry, groupName) {
