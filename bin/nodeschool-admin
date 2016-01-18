@@ -8,6 +8,16 @@ var input = nopt({
   'gh-client-id': String,
   'gh-client-secret': String,
   'gh-token': String,
+  'event-name': String,
+  'event-location-name': String,
+  'event-location-lat': String,
+  'event-location-lng': String,
+  'event-location-time-zone': String,
+  'event-start-date': String,
+  'event-start-time': String,
+  'event-end-date': String,
+  'event-end-time': String,
+  'event-url': String,
   path: path
 }, {
   l: 'loglevel',

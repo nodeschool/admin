@@ -1,5 +1,5 @@
 {
-  "name": "nodeschool-chapter",
+  "name": "nodeschool-admin",
   "version": "0.0.1",
   "description": "CLI tool for setting up and maintaining a nodeschool chapter.",
   "main": "./lib/index.js",
@@ -7,7 +7,7 @@
     "test": "standard",
     "postinstall": "echo \"Thank you for installing `nodeschool-chapter`!\""
   },
-  "bin": "bin/nodeschool-chapter",
+  "bin": "bin/nodeschool-admin",
   "keywords": [
     "nodeschool",
     "chapter",
@@ -33,10 +33,14 @@
     "iso3166-1": "^0.2.5",
     "joi": "^7.1.0",
     "mocha": "^2.3.4",
+    "moment": "^2.11.1",
+    "moment-timezone": "^0.5.0",
     "node-geo": "^0.1.0",
     "nodegit": "^0.6.3",
     "nopt": "^3.0.6",
     "semver-compare": "^1.0.0",
-    "stream-to-promise": "^1.1.0"
+    "stream-to-promise": "^1.1.0",
+    "tz-lookup": "^6.0.2",
+    "zoneinfo": "^0.1.8"
   }
 }

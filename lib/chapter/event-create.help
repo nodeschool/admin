@@ -1,1 +1,25 @@
-Create events :)
+# Creates a new event.
+
+Every chapter can have a `events.json` that contains a list of events of this particular chapter. In order to maintain a certain amount of sanity in the data structure, the events have to follow certain
+data rules. 
+
+This command makes it easier to add new events to the `events.json` that are valid. 
+
+## Reuse of data
+
+`create-event` will reuse previous event data such as the location and the name-prefix.
+
+## Passing in data
+
+You can prefill the event data using the following parameters
+
+	- `--event-name`
+	- `--event-location-name`
+	- `--event-location-lat`
+	- `--event-location-lng`
+	- `--event-location-time-zone`
+	- `--event-start-date` or `--event-date`
+	- `--event-start-time`
+	- `--event-end-date` or `--event-date`
+	- `--event-end-time`
+	- `--event-url`
