@@ -7,6 +7,7 @@
     "validate": "npm run lint && npm test",
     "test": "mocha tests/**/*.test.js",
     "lint": "standard",
+    "start": "node bin/nodeschool-admin",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
   "standard": {
@@ -39,6 +40,7 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "callback-stream": "^1.1.0",
+    "chalk": "^1.1.1",
     "child-process-promise": "^1.1.0",
     "figlet": "^1.1.1",
     "git-url-parse": "^4.2.1",
