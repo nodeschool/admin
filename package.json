@@ -4,10 +4,16 @@
   "description": "CLI tool for setting up and maintaining a nodeschool chapters and other things.",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "standard",
+    "validate": "npm run lint && npm test",
+    "test": "mocha tests/**/*.test.js",
+    "lint": "standard",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
   "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ],
     "ignore": [
       "/lib/util/eventTime.js"
     ]
@@ -24,8 +30,11 @@
   "author": "Martin Heidegger <martin.heidegger@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "standard": "^5.4.1",
-    "tape": "^4.4.0"
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "standard": "^5.4.1"
   },
   "dependencies": {
     "bluebird": "^3.1.1",
