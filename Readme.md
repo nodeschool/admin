@@ -28,3 +28,8 @@ The `Standard Mode` is active in every folder **except** folders that works for 
 The application will show a nice dialog to choose your commands from there on.
 
 Cheers.
+
+# Develop
+* Fork the repository
+* Run with the following command `node ./bin/nodeschool-admin -p <full path to your chapter folder>`
+* Happy coding
