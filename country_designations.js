@@ -2,59 +2,161 @@
 //       to group the chapters on the homepage. The likelyhood of minor mistakes is great.
 //       If the sorting looks weird or you want to propose another sorting, I urge you to
 //       please commit a PR!
+//
+//      https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 exports.byGroup = {
-  'Latin America': [
-    'AI',
-    'AG',
-    'AR',
-    'AW',
-    'BS',
-    'BB',
-    'BM',
-    'BO',
-    'BQ',
-    'BR',
-    'KY',
-    'CL',
-    'CO',
-    'CR',
-    'CU',
-    'CW',
-    'DM',
-    'DO',
-    'EC',
-    'SV',
-    'GQ',
-    'FK',
-    'GF',
-    'GD',
-    'GP',
-    'GT',
-    'GY',
-    'HT',
-    'HN',
-    'JM',
-    'MQ',
-    'MX',
-    'MS',
-    'NI',
-    'PA',
-    'PG',
-    'PY',
-    'PE',
-    'PR',
-    'BL',
-    'KN',
-    'LC',
-    'MF',
-    'VC',
-    'SK',
-    'SR',
-    'TT',
-    'UY',
-    'VG',
-    'VI'
-  ],
+  'Latin America': {
+    'AI': {
+      name: 'Anguilla'
+    },
+    'AG': {
+      name: 'Antigua and Barguda'
+    },
+    'AR': {
+      name: 'Argentina'
+    },
+    'AW': {
+      name: 'Aruba'
+    },
+    'BB': {
+      name:'Barbados'
+    },
+    'BS': {
+      name: 'Bahamas'
+    },
+    'BM': {
+      name:'Bermuda'
+    },
+    'BO': {
+      name:'Bolivia'
+    },
+    'BQ': {
+      name:'Bonaire'
+    },
+    'BR': {
+      name:'Brazil'
+    },
+    'KY': {
+      name:''
+    },
+    'CL': {
+      name:'Chile'
+    },
+    'CO': {
+      name:'Colombia'
+    },
+    'CR': {
+      name:''
+    },
+    'CU': {
+      name:''
+    },
+    'CW': {
+      name:''
+    },
+    'DM': {
+      name:''
+    },
+    'DO': {
+      name:''
+    },
+    'EC': {
+      name:'Ecuador'
+    },
+    'SV': {
+      name:'El Salvador'
+    },
+    'GQ': {
+      name:''
+    },
+    'FK': {
+      name:''
+    },
+    'GF': {
+      name:''
+    },
+    'GD': {
+      name:''
+    },
+    'GP': {
+      name:''
+    },
+    'GT': {
+      name:''
+    },
+    'GY': {
+      name:''
+    },
+    'HT': {
+      name:''
+    },
+    'HN': {
+      name:''
+    },
+    'JM': {
+      name:''
+    },
+    'MQ': {
+      name:''
+    },
+    'MX': {
+      name:'México'
+    },
+    'MS': {
+      name:''
+    },
+    'NI': {
+      name:''
+    },
+    'PA': {
+      name:''
+    },
+    'PG': {
+      name:''
+    },
+    'PY': {
+      name:''
+    },
+    'PE': {
+      name:''
+    },
+    'PR': {
+      name:''
+    },
+    'BL': {
+      name:''
+    },
+    'KN': {
+      name:''
+    },
+    'LC': {
+      name:''
+    },
+    'MF': {
+      name:''
+    },
+    'VC': {
+      name:''
+    },
+    'SK': {
+      name:''
+    },
+    'SR': {
+      name:''
+    },
+    'TT': {
+      name:''
+    },
+    'UY': {
+      name:''
+    },
+    'VG': {
+      name:''
+    },
+    'VI': {
+      name:''
+    }
+  },
   'South Pacific': [
     'AS',
     'AU',
@@ -268,9 +370,22 @@ exports.byGroup = {
     'GS'
   ]
 }
+
+exports.continents = Object.keys(exports.byGroup);
+
+exports.prettyCountriesListByContinent = (continent) => {
+  var countriesData = exports.byGroup;
+  return Object.keys(countriesData[continent]).map((el,i)=>{
+    var country = countriesData[continent];
+    return el + ' - ' + country[el].name
+  });
+}
+
+/*
 exports.byCountry = Object.keys(exports.byGroup).reduce(function (byCountry, groupName) {
   exports.byGroup[groupName].forEach(function (country) {
     byCountry[country] = groupName
   })
   return byCountry
 }, {})
+*/
