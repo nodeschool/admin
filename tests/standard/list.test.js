@@ -43,12 +43,10 @@ describe('Standard List', () => {
     })
   })
 
-  it('should get all the repos with new structure', (done) => {
+  it('should get all the repos with new structure', () => {
     return List.run(input).then(chapters => {
       var chapter = chapters['NodeSchool Zagreb']
-      expect(chapter).to.exist
-      expect(chapter.twitter).to.equal('#nodeschool-zagreb')
-      done()
+      return expect(chapter.twitter).to.equal('#nodeschool-zagreb')
     })
   })
 })
