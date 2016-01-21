@@ -28,9 +28,14 @@
     "cli",
     "community"
   ],
+  "standard": {
+    "globals": [ "describe", "it" ],
+    "parser": "babel-eslint"
+  },
   "author": "Martin Heidegger <martin.heidegger@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^4.1.6",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
     "mocha": "^2.3.4",
