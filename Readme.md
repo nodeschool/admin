@@ -15,6 +15,7 @@ Welcome to [NodeSchool](http://nodeschool.io)
 ![Screenshot](./screenshot.png)
 
 # Usage
+Start the script by running `nodeschool-admin` in your terminal. 
 
 This tool has **two modes** depending on **the folder** in which it is executed!
 
