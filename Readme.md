@@ -3,6 +3,8 @@
 
 # NodeSchool Admin CLI Tool
 
+[![Join the chat at https://gitter.im/nodeschool/admin](https://badges.gitter.im/nodeschool/admin.svg)](https://gitter.im/nodeschool/admin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Welcome to [NodeSchool](http://nodeschool.io)
 
 `nodeschool-admin` is a CLI tool that should help you get your work done on NodeSchool.
