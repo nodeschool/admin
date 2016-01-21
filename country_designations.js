@@ -37,7 +37,7 @@ exports.byGroup = {
       name:'Brazil'
     },
     'KY': {
-      name:''
+      name:'Cayman Islands'
     },
     'CL': {
       name:'Chile'
@@ -46,19 +46,19 @@ exports.byGroup = {
       name:'Colombia'
     },
     'CR': {
-      name:''
+      name:'Costa Rica'
     },
     'CU': {
-      name:''
+      name:'Cuba'
     },
     'CW': {
-      name:''
+      name:'Curaçao'
     },
     'DM': {
-      name:''
+      name:'Dominica'
     },
     'DO': {
-      name:''
+      name:'Dominican Republic'
     },
     'EC': {
       name:'Ecuador'
@@ -67,229 +67,477 @@ exports.byGroup = {
       name:'El Salvador'
     },
     'GQ': {
-      name:''
+      name:'Equatorial Guinea'
     },
     'FK': {
-      name:''
+      name:'Falkland Islands (Malvinas)'
     },
     'GF': {
-      name:''
+      name:'French Guiana'
     },
     'GD': {
-      name:''
+      name:'Grenada'
     },
     'GP': {
-      name:''
+      name:'Guadeloupe'
     },
     'GT': {
-      name:''
+      name:'Guatemala'
     },
     'GY': {
-      name:''
+      name:'Guyana'
     },
     'HT': {
-      name:''
+      name:'Haiti'
     },
     'HN': {
-      name:''
+      name:'Honduras'
     },
     'JM': {
-      name:''
+      name:'Jamaica'
     },
     'MQ': {
-      name:''
+      name:'Martinique'
     },
     'MX': {
       name:'México'
     },
     'MS': {
-      name:''
+      name:'Montserrat'
     },
     'NI': {
-      name:''
+      name:'Nicaragua'
     },
     'PA': {
-      name:''
+      name:'Panama'
     },
     'PG': {
-      name:''
+      name:'Papua New Guinea'
     },
     'PY': {
-      name:''
+      name:'Paraguay'
     },
     'PE': {
-      name:''
+      name:'Perú'
     },
     'PR': {
-      name:''
+      name:'Puerto Rico'
     },
     'BL': {
-      name:''
+      name:'Saint Barthélemy'
     },
     'KN': {
-      name:''
+      name:'Saint Kitts and Nevis'
     },
     'LC': {
-      name:''
+      name:'Saint Lucia'
     },
     'MF': {
-      name:''
+      name:'Saint Martin (French part)'
     },
     'VC': {
-      name:''
+      name:'Saint Vincent and the Grenadines'
     },
     'SK': {
-      name:''
+      name:'Slovakia'
     },
     'SR': {
-      name:''
+      name:'Suriname'
     },
     'TT': {
-      name:''
+      name:'Trinidad and Tobago'
     },
     'UY': {
-      name:''
+      name:'Uruguay'
     },
     'VG': {
-      name:''
+      name:'Virgin Islands, British'
     },
     'VI': {
-      name:''
+      name:'Virgin Islands, U.S.'
     }
   },
-  'South Pacific': [
-    'AS',
-    'AU',
-    'BN',
-    'CX',
-    'CC',
-    'CK',
-    'FJ',
-    'PF',
-    'GU',
-    'ID',
-    'MY',
-    'MH',
-    'FM',
-    'NR',
-    'NC',
-    'NZ',
-    'NU',
-    'NF',
-    'MP',
-    'PW',
-    'PH',
-    'PN',
-    'WS',
-    'SG',
-    'SB',
-    'TL',
-    'TK',
-    'TO',
-    'TC',
-    'TV',
-    'UM',
-    'VU',
-    'WF'
-  ],
-  'North America': [
-    'CA',
-    'GL',
-    'PM',
-    'US'
-  ],
-  'Asia': [
-    'AM',
-    'BD',
-    'BT',
-    'IO',
-    'BI',
-    'KH',
-    'CN',
-    'KM',
-    'GE',
-    'HK',
-    'IN',
-    'JP',
-    'KZ',
-    'KP',
-    'KR',
-    'KG',
-    'LA',
-    'MO',
-    'MV',
-    'MN',
-    'MM',
-    'NP',
-    'PK',
-    'LK',
-    'TW',
-    'TH',
-    'TM',
-    'UZ',
-    'VE',
-    'VN'
-  ],
-  'Africa': [
-    'DZ',
-    'AO',
-    'BZ',
-    'BJ',
-    'BW',
-    'BF',
-    'CM',
-    'CV',
-    'CF',
-    'TD',
-    'CG',
-    'CD',
-    'CI',
-    'DJ',
-    'EG',
-    'ER',
-    'ET',
-    'GA',
-    'GM',
-    'GH',
-    'GN',
-    'GW',
-    'KE',
-    'KI',
-    'LS',
-    'LR',
-    'LY',
-    'MG',
-    'MW',
-    'ML',
-    'MR',
-    'MU',
-    'YT',
-    'MA',
-    'MZ',
-    'NA',
-    'NE',
-    'NG',
-    'RW',
-    'RE',
-    'SH',
-    'ST',
-    'SN',
-    'SL',
-    'SO',
-    'ZA',
-    'SS',
-    'SD',
-    'SZ',
-    'TZ',
-    'TG',
-    'TN',
-    'UG',
-    'EH',
-    'YE',
-    'ZM',
-    'ZW'
-  ],
-  'Europe': [
+  'South Pacific': {
+    'AS': {
+      name:'American Samoa'
+    },
+    'AU': {
+      name:'Australia'
+    },
+    'BN': {
+      name:'Brunei Darussalam'
+    },
+    'CX': {
+      name:'Christmas Island'
+    },
+    'CC': {
+      name:'Cocos (Keeling) Islands'
+    },
+    'CK': {
+      name:'Cook Islands'
+    },
+    'FJ': {
+      name:'Fiji'
+    },
+    'PF': {
+      name:'French Polynesia'
+    },
+    'GU': {
+      name:'Guam'
+    },
+    'ID': {
+      name:'Indonesia'
+    },
+    'MY': {
+      name:'Malaysia'
+    },
+    'MH': {
+      name:'Marshall Islands'
+    },
+    'FM': {
+      name:'Saint Martin (French part)'
+    },
+    'NR': {
+      name:'Nauru'
+    },
+    'NC': {
+      name:'New Caledonia'
+    },
+    'NZ': {
+      name:'New Zealand'
+    },
+    'NU': {
+      name:'Niue'
+    },
+    'NF': {
+      name:'Norfolk Island'
+    },
+    'MP': {
+      name:'Northern Mariana Islands'
+    },
+    'PW': {
+      name:'Palau'
+    },
+    'PH': {
+      name:'Philippines'
+    },
+    'PN': {
+      name:'Pitcairn'
+    },
+    'WS': {
+      name:'Wallis and Futuna'
+    },
+    'SG': {
+      name:'Singapore'
+    },
+    'SB': {
+      name:'Solomon Islands'
+    },
+    'TL': {
+      name:'Timor-Leste'
+    },
+    'TK': {
+      name:'Tokelau'
+    },
+    'TO': {
+      name:'Tonga'
+    },
+    'TC': {
+      name:'Turks and Caicos Islands'
+    },
+    'TV': {
+      name:'Tuvalu'
+    },
+    'UM': {
+      name:'United States Minor Outlying Islands'
+    },
+    'VU': {
+      name:'Vanuatu'
+    },
+    'WF': {
+      name:'Wallis and Futuna'
+    }
+  },
+  'North America': {
+    'CA': {
+      name: 'Canada'
+    },
+    'GL': {
+      name: 'Greenland'
+    },
+    'PM': {
+      name: 'Saint Pierre and Miquelon'
+    },
+    'US': {
+      name: 'United States of America'
+    }
+  },
+  'Asia': {
+    'AM': {
+      name:'Armenia'
+    },
+    'BD': {
+      name:'Bangladesh'
+    },
+    'BT': {
+      name:'Bhutan'
+    },
+    'IO': {
+      name:'British Indian Ocean Territory'
+    },
+    'BI': {
+      name:'Burundi'
+    },
+    'KH': {
+      name:'Cambodia'
+    },
+    'CN': {
+      name:'China'
+    },
+    'KM': {
+      name:'Comoros'
+    },
+    'GE': {
+      name:'Georgia'
+    },
+    'HK': {
+      name:'Hong Kong'
+    },
+    'IN': {
+      name:'India'
+    },
+    'JP': {
+      name:'Japan'
+    },
+    'KZ': {
+      name:'Kazakhstan'
+    },
+    'KP': {
+      name:'Korea, Democratic People\'s Republic of'
+    },
+    'KR': {
+      name:'Korea, Republic of'
+    },
+    'KG': {
+      name:'Kyrgyzstan'
+    },
+    'LA': {
+      name:'Lao People\'s Democratic Republic'
+    },
+    'MO': {
+      name:'Macao'
+    },
+    'MV': {
+      name:'Maldives'
+    },
+    'MN': {
+      name:'Mongolia'
+    },
+    'MM': {
+      name:'Myanmar'
+    },
+    'NP': {
+      name:'Nepal'
+    },
+    'PK': {
+      name:'Pakistan'
+    },
+    'LK': {
+      name:'Sri Lanka'
+    },
+    'TW': {
+      name:'Taiwan, Province of China'
+    },
+    'TH': {
+      name:'Thailand'
+    },
+    'TM': {
+      name:'Turkmenistan'
+    },
+    'UZ': {
+      name:'Uzbekistan'
+    },
+    'VE': {
+      name:'Venezuela, Bolivarian Republic of'
+    },
+    'VN': {
+      name:'Viet Nam'
+    }
+  },
+  'Africa': {
+    'AO': {
+      name:'Angola'
+    },
+    'BZ': {
+      name:'Belize'
+    },
+    'BJ': {
+      name:'Benin'
+    },
+    'BW': {
+      name:'Botswana'
+    },
+    'BF': {
+      name:'Burkina Faso'
+    },
+    'CM': {
+      name:'Cameroon'
+    },
+    'CV': {
+      name:'Cabo Verde'
+    },
+    'CF': {
+      name:'Central African Republic'
+    },
+    'TD': {
+      name:'Chad'
+    },
+    'CG': {
+      name:'Congo'
+    },
+    'CD': {
+      name:'Congo, the Democratic Republic of the'
+    },
+    'CI': {
+      name:'Côte d\'Ivoire'
+    },
+    'DJ': {
+      name:'Djibouti'
+    },
+    'DZ': {
+      name:'Algeria'
+    },
+    'EG': {
+      name:'Egypt'
+    },
+    'ER': {
+      name:'Eritrea'
+    },
+    'ET': {
+      name:'Ethiopia'
+    },
+    'GA': {
+      name:'Gabon'
+    },
+    'GM': {
+      name:'Gambia'
+    },
+    'GH': {
+      name:'Ghana'
+    },
+    'GN': {
+      name:'Guinea'
+    },
+    'GW': {
+      name:'Guinea-Bissau'
+    },
+    'KE': {
+      name:'Kenya'
+    },
+    'KI': {
+      name:'Kiribati'
+    },
+    'LS': {
+      name:'Lesotho'
+    },
+    'LR': {
+      name:'Liberia'
+    },
+    'LY': {
+      name:'Libya'
+    },
+    'MG': {
+      name:'Madagascar'
+    },
+    'MW': {
+      name:'Malawi'
+    },
+    'ML': {
+      name:'Mali'
+    },
+    'MR': {
+      name:'Mauritania'
+    },
+    'MU': {
+      name:'Mauritius'
+    },
+    'YT': {
+      name:'Mayotte'
+    },
+    'MA': {
+      name:'Morocco'
+    },
+    'MZ': {
+      name:'Mozambique'
+    },
+    'NA': {
+      name:'Namibia'
+    },
+    'NE': {
+      name:'Niger'
+    },
+    'NG': {
+      name:'Nigeria'
+    },
+    'RW': {
+      name:'Rwanda'
+    },
+    'RE': {
+      name:'Réunion'
+    },
+    'SH': {
+      name:'Saint Helena, Ascension and Tristan da Cunha'
+    },
+    'ST': {
+      name:'Sao Tome and Principe'
+    },
+    'SN': {
+      name:'Senegal'
+    },
+    'SL': {
+      name:'Sierra Leone'
+    },
+    'SO': {
+      name:'Somalia'
+    },
+    'ZA': {
+      name:'South Africa'
+    },
+    'SS': {
+      name:'South Sudan'
+    },
+    'SD': {
+      name:'Sudan'
+    },
+    'SZ': {
+      name:'Swaziland'
+    },
+    'TZ': {
+      name:'Tanzania, United Republic of'
+    },
+    'TG': {
+      name:'Togo'
+    },
+    'TN': {
+      name:'Tunisia'
+    },
+    'UG': {
+      name:'Uganda'
+    },
+    'EH': {
+      name:'Western Sahara'
+    },
+    'YE': {
+      name:'Yemen'
+    },
+    'ZM': {
+      name:'Zambia'
+    },
+    'ZW': {
+      name:'Zimbabwe'
+    },
+  },
+  'Europe': {
     'AL',
     'AD',
     'AT',
@@ -341,7 +589,7 @@ exports.byGroup = {
     'TR',
     'UA',
     'GB',
-    'AX'
+    'AX',
   ],
   'Middle East': [
     'AF',
@@ -360,15 +608,15 @@ exports.byGroup = {
     'QA',
     'SA',
     'SY',
-    'AE'
-  ],
-  'Southpole': [
+    'AE',
+  },
+  'Southpole': {
     'AQ',
     'BV',
     'TF',
     'HM',
-    'GS'
-  ]
+    'GS',
+  }
 }
 
 exports.continents = Object.keys(exports.byGroup);
