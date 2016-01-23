@@ -2,6 +2,7 @@
 var nopt = require('nopt')
 var log = require('npmlog')
 var path = require('path')
+var fs = require('fs')
 var input = nopt({
   loglevel: ['info', 'silly', 'verbose', 'http', 'warn', 'error'],
   chapter: String,
@@ -27,13 +28,25 @@ var input = nopt({
 input.path = input.path || process.cwd()
 log.level = input.loglevel || 'info'
 
-if (!input['gh-client-id'] && process.env.GITHUB_CLIENT_SECRET && process.env.GITHUB_CLIENT_ID) {
-  input['gh-client-id'] = process.env.GITHUB_CLIENT_ID
-  input['gh-client-secret'] = process.env.GITHUB_CLIENT_SECRET
-}
-
-if (!input['gh-token'] && process.env.GITHUB_TOKEN) {
-  input['gh-token'] = process.env.GITHUB_TOKEN
+// Checking it Github variables exist in '/config/github.js'
+if (fs.exists('../config/github')) {
+  var githubConfig = require('../config/github').githubConfig
+  if (githubConfig.GITHUB_CLIENT_ID) {
+    input['gh-client-id'] = githubConfig.GITHUB_CLIENT_ID
+  }
+  if (githubConfig.GITHUB_CLIENT_SECRET && githubConfig.GITHUB_CLIENT_ID) {
+    input['gh-client-id'] = githubConfig.GITHUB_CLIENT_SECRET
+    input['gh-client-secret'] = githubConfig.GITHUB_CLIENT_ID
+  }
+} else {
+  // if Github variables does not exist in '/config/github.js', search in ENV
+  if (!input['gh-client-id'] && process.env.GITHUB_CLIENT_SECRET && process.env.GITHUB_CLIENT_ID) {
+    input['gh-client-id'] = process.env.GITHUB_CLIENT_ID
+    input['gh-client-secret'] = process.env.GITHUB_CLIENT_SECRET
+  }
+  if (!input['gh-token'] && process.env.GITHUB_TOKEN) {
+    input['gh-token'] = process.env.GITHUB_TOKEN
+  }
 }
 
 require('..').run(input)
@@ -61,6 +74,6 @@ require('..').run(input)
     } else {
       log.error('error', e)
     }
-    log.error('oh!', '\nSomething went wrong, sorry for that. (-_-\')\n' )
+    log.error('oh!', '\nSomething went wrong, sorry for that. (-_-\')\n')
     process.exit(1)
   })
