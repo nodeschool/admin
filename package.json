@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "npm run lint && npm test",
     "test": "mocha tests/**/*.test.js",
+    "test:w": "mocha tests/**/*.test.js -w",
     "lint": "standard",
     "start": "node bin/nodeschool-admin",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
