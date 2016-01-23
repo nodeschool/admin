@@ -2,7 +2,6 @@ var CountryDesignation = require('../../lib/country_designations.js')
 var chai = require('chai')
 var expect = chai.expect
 
-console.log(CountryDesignation.areas);
 describe('Country desgnations', () => {
   it('should get list of areas', () => {
     return expect(Geocode.country('Zagreb', 'HR')).to.eventually.contain(pos)
