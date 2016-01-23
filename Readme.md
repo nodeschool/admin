@@ -19,6 +19,10 @@ Start the script by running `nodeschool-admin` in your terminal.
 
 This tool has **two modes** depending on **the folder** in which it is executed!
 
+# Requirements
+* Minimum [Git](https://git-scm.com/) Version 2.0
+* [Node LTS](https://nodejs.org/en/download/)
+
 # Chapter Mode
  
 To be in `Chapter Mode` you need to move your terminal location to a folder that contains a git repository with a [remote](https://git-scm.com/docs/git-remote) pointing to the repo of your nodeschool chapter.
