@@ -6,7 +6,7 @@
   "scripts": {
     "validate": "npm run lint && npm test",
     "test": "mocha tests/**/*.test.js",
-    "lint": "standard",
+    "lint": "standard; markdownlint README.md CONTRIBUTING.md lib/common.help lib/chapter/event-create.help  lib/chapter/init.help",
     "start": "node bin/nodeschool-admin",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
   },
@@ -38,6 +38,7 @@
     "babel-eslint": "^4.1.6",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
+    "markdownlint-cli": "0.0.2",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2",
     "standard": "^5.4.1"
