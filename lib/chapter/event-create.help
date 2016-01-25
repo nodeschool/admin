@@ -1,9 +1,10 @@
-# Creates a new event.
+# Creates a new event
 
-Every chapter can have a `events.json` that contains a list of events of this particular chapter. In order to maintain a certain amount of sanity in the data structure, the events have to follow certain
-data rules. 
+Every chapter can have a `events.json` that contains a list of events of this particular
+chapter. In order to maintain a certain amount of sanity in the data structure, the
+events have to follow certain data rules.
 
-This command makes it easier to add new events to the `events.json` that are valid. 
+This command makes it easier to add new events to the `events.json` that are valid.
 
 ## Reuse of data
 
@@ -13,13 +14,13 @@ This command makes it easier to add new events to the `events.json` that are val
 
 You can prefill the event data using the following parameters
 
-	- `--event-name`
-	- `--event-location-name`
-	- `--event-location-lat`
-	- `--event-location-lng`
-	- `--event-location-time-zone`
-	- `--event-start-date` or `--event-date`
-	- `--event-start-time`
-	- `--event-end-date` or `--event-date`
-	- `--event-end-time`
-	- `--event-url`
+- `--event-name`
+- `--event-location-name`
+- `--event-location-lat`
+- `--event-location-lng`
+- `--event-location-time-zone`
+- `--event-start-date` or `--event-date`
+- `--event-start-time`
+- `--event-end-date` or `--event-date`
+- `--event-end-time`
+- `--event-url`

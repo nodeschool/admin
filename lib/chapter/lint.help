@@ -1,1 +1,6 @@
-linting everything
+# Lint a chapter and makes sure its 1A okay
+
+The information of a chapter can be maintained however you like to, but(!), in order for the
+chapter to be listed on the NodeSchool homepage it has to comply with a few rules.
+
+`lint` validates the `chapter.json` and the events. 

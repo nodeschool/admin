@@ -1,17 +1,21 @@
+# General Settings
+
+* --path or -p ......... to specify the path in which the operations should be run
+   (defaults to .)
+* --loglevel or -l ..... to change the loglevel. Supported options are
+   silly/verbose/info/http/warn/error/silent
+
 ## Github Authorisation
- 
+
 Github has request limits that are significantly increased if you use github authorisation.
 Right now there are two options to authorize Github Tokens or Client ID & Secret.
 
---gh-token ........... Token can be retreived from https://github.com/settings/tokens
-                       (defaults to GITHUB_TOKEN environment variable!)
+* --gh-token ........... Token can be retreived through the
+  [github settings](https://github.com/settings/tokens)
+  (defaults to GITHUB_TOKEN environment variable!)
 
-Authorization via Application can be retrieved from https://github.com/settings/developers
+Authorization via Application can be retrieved from the [github developer page](https://github.com/settings/developers).
 
---gh-client-id ....... Client ID (defaults to GITHUB_CLIENT_ID environment variable!)
---gh-client-secret ... Client Secret (defaults to GITHUB_CLIENT_SECRET environment variable!)
-
-## General Settings
-
---path or -p ......... to specify the path in which the operations should be run (defaults to .)
---loglevel or -l ..... to change the loglevel. Supported are silly/verbose/info/http/warn/error/silent
+* --gh-client-id ....... Client ID (defaults to GITHUB_CLIENT_ID environment variable!)
+* --gh-client-secret ... Client Secret
+  (defaults to GITHUB_CLIENT_SECRET environment variable!)
