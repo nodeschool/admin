@@ -4,6 +4,7 @@
   "description": "CLI tool for setting up and maintaining a nodeschool chapters and other things.",
   "main": "./lib/index.js",
   "scripts": {
+    "coverage": "istanbul cover _mocha -- tests/**/*",
     "validate": "npm run lint && npm test",
     "test": "mocha tests/**/*.test.js",
     "lint": "standard; markdownlint README.md CONTRIBUTING.md lib/common.help lib/chapter/event-create.help  lib/chapter/init.help",
@@ -13,11 +14,11 @@
   "standard": {
     "globals": [
       "describe",
-      "it"
+      "it",
+      "beforeEach",
+      "afterEach"
     ],
-    "ignore": [
-      "/lib/util/eventTime.js"
-    ]
+    "parser": "babel-eslint"
   },
   "bin": {
     "nodeschool-admin": "bin/nodeschool-admin"
@@ -28,16 +29,13 @@
     "cli",
     "community"
   ],
-  "standard": {
-    "globals": [ "describe", "it", "beforeEach", "afterEach" ],
-    "parser": "babel-eslint"
-  },
   "author": "Martin Heidegger <martin.heidegger@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^4.1.6",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
+    "istanbul": "^0.4.2",
     "markdownlint-cli": "0.0.2",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2",
