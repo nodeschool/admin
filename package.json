@@ -29,7 +29,7 @@
     "community"
   ],
   "standard": {
-    "globals": [ "describe", "it" ],
+    "globals": [ "describe", "it", "beforeEach", "afterEach" ],
     "parser": "babel-eslint"
   },
   "author": "Martin Heidegger <martin.heidegger@gmail.com>",

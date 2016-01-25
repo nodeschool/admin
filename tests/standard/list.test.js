@@ -23,7 +23,7 @@ describe('Standard List', () => {
     },
     twitter: '#nodeschool-zagreb'
   }
-  
+
   beforeEach(function () {
     sandbox = sinon.sandbox.create()
   })
