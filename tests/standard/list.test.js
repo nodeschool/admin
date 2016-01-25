@@ -7,6 +7,7 @@ var chai = require('chai')
 var expect = chai.expect
 
 describe('Standard List', () => {
+  var sandbox
   var input = {
     argv: { remain: [], cooked: [], original: [] },
     chapter: 'zagreb',
@@ -22,28 +23,36 @@ describe('Standard List', () => {
     },
     twitter: '#nodeschool-zagreb'
   }
-  sinon.stub(Github, 'all', function () {
-    return new Promise(function (resolve) {
-      resolve([chapter])
-    })
+
+  beforeEach(function () {
+    sandbox = sinon.sandbox.create()
   })
-  sinon.stub(Json, 'fromUrl', function () {
-    return new Promise(function (resolve) {
-      resolve(chapter)
-    })
-  })
-  sinon.stub(Validate, 'chapter', function () {
-    return new Promise(function (resolve) {
-      resolve(true)
-    })
-  })
-  sinon.stub(Validate, 'events', function () {
-    return new Promise(function (resolve) {
-      resolve(true)
-    })
+
+  afterEach(function () {
+    sandbox.restore()
   })
 
   it('should get all the repos with new structure', () => {
+    sinon.stub(Github, 'all', function () {
+      return new Promise(function (resolve) {
+        resolve([chapter])
+      })
+    })
+    sinon.stub(Json, 'fromUrl', function () {
+      return new Promise(function (resolve) {
+        resolve(chapter)
+      })
+    })
+    sinon.stub(Validate, 'chapter', function () {
+      return new Promise(function (resolve) {
+        resolve(true)
+      })
+    })
+    sinon.stub(Validate, 'events', function () {
+      return new Promise(function (resolve) {
+        resolve(true)
+      })
+    })
     return List.run(input).then(chapters => {
       var chapter = chapters['NodeSchool Zagreb']
       return expect(chapter.twitter).to.equal('#nodeschool-zagreb')
