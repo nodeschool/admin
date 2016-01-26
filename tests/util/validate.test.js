@@ -38,4 +38,9 @@ describe('Util Validate', () => {
     chapter.name = 'Osaka'
     return expect(Validate.chapter('/testPath', chapter)).to.eventually.contain({region: "Asia"})
   })
+
+  it('should check for the country that does no exist', () => {
+    chapter.location.country = 'PP'
+    return expect(Validate.chapter('/testPath', chapter)).to.be.rejected
+  })
 })
