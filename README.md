@@ -1,9 +1,7 @@
 # NodeSchool Admin CLI Tool
 
-[![Coverage Status](https://coveralls.io/repos/nodeschool/admin/badge.svg?branch=master)](https://coveralls.io/r/nodeschool/admin?branch=master)
-
+[![Coverage Status](https://coveralls.io/repos/github/nodeschool/admin/badge.svg?branch=master)](https://coveralls.io/github/nodeschool/admin?branch=master)
 [![Build Status](https://travis-ci.org/nodeschool/admin.svg?branch=master)](https://travis-ci.org/nodeschool/admin)
-
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Join the chat at https://gitter.im/nodeschool/admin](https://badges.gitter.im/nodeschool/admin.svg)](https://gitter.im/nodeschool/admin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
