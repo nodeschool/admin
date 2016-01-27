@@ -33,22 +33,22 @@ describe('Standard List', () => {
   })
 
   it('should get all the repos with new structure', () => {
-    sinon.stub(Github, 'all', function () {
+    sandbox.stub(Github, 'all', function () {
       return new Promise(function (resolve) {
         resolve([chapter])
       })
     })
-    sinon.stub(Json, 'fromUrl', function () {
+    sandbox.stub(Json, 'fromUrl', function () {
       return new Promise(function (resolve) {
         resolve(chapter)
       })
     })
-    sinon.stub(Validate, 'chapter', function () {
+    sandbox.stub(Validate, 'chapter', function () {
       return new Promise(function (resolve) {
         resolve(true)
       })
     })
-    sinon.stub(Validate, 'events', function () {
+    sandbox.stub(Validate, 'events', function () {
       return new Promise(function (resolve) {
         resolve(true)
       })
