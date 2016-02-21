@@ -1,11 +1,31 @@
+/* global it describe */
 var chai = require('chai')
 var expect = chai.expect
 var eventCreate = require('../../lib/util/event-create-helper')
 
 var chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
-/* global it describe */
 describe('Event Create Helper', () => {
+  describe('loaders', () => {
+    it('should try to load chapter', () => {
+      // nothing on that path
+      return expect(eventCreate.loadChapter('chapter.json'))
+              .to.be.rejected
+    })
+    it('should load chapter', () => {
+      return expect(eventCreate.loadChapter('tests/chapter.json'))
+              .to.eventually.have.all.keys('location', 'name', 'region', 'twitter')
+    })
+    it('should try to load events', () => {
+      // nothing on that path
+      return expect(eventCreate.loadEvents('events.json'))
+              .to.eventually.become({})
+    })
+    it('should load events', () => {
+      return expect(eventCreate.loadEvents('tests/events.json'))
+              .to.eventually.have.all.keys('NodeSchool Zagreb Kick-Off', 'NodeSchool Zagreb #2', 'NodeSchool Zagreb #3')
+    })
+  })
   describe('Lat Lng check', () => {
     it('should assert Lat Lng', () => {
       var raw = '45.81444/15.97798'
