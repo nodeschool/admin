@@ -33,23 +33,23 @@ describe('Standard List', () => {
   })
 
   it('should get all the repos with new structure', () => {
-    sandbox.stub(Github, 'all', function () {
-      return new Promise(function (resolve) {
+    sandbox.stub(Github, 'all', () => {
+      return new Promise(resolve => {
         resolve([chapter])
       })
     })
     sandbox.stub(Json, 'fromUrl', function () {
-      return new Promise(function (resolve) {
+      return new Promise(resolve => {
         resolve(chapter)
       })
     })
     sandbox.stub(Validate, 'chapter', function () {
-      return new Promise(function (resolve) {
+      return new Promise(resolve => {
         resolve(true)
       })
     })
     sandbox.stub(Validate, 'events', function () {
-      return new Promise(function (resolve) {
+      return new Promise(resolve => {
         resolve(true)
       })
     })
