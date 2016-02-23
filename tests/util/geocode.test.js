@@ -10,8 +10,19 @@ describe('Utils Geocode', () => {
     var pos = { long_name: 'Croatia', short_name: 'HR' }
     return expect(Geocode.country('Zagreb', 'HR')).to.eventually.contain(pos)
   })
-  it('should find lat lng', () => {
+  it('should find the lat lng for a country.', () => {
     var pos = { lat: 45.8150108, lng: 15.981919 }
     return expect(Geocode.latlng('Zagreb, HR')).to.eventually.become(pos)
+  })
+  it('should find the country for a lat lng', () => {
+    var pos = { lat: 45.8150108, lng: 15.981919 }
+    return expect(Geocode.country({ lat: 45.8150108, lng: 15.981919 })).to.eventually.become({
+      "long_name": "Croatia",
+      "short_name": "HR",
+      "types": [
+        "country",
+        "political"
+      ]
+  	})
   })
 })
