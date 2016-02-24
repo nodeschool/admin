@@ -30,7 +30,7 @@ describe('Standard Clone', () => {
 
   it('should select a chapter to clone without a value #1', () => {
     sandbox.stub(Inquire, 'run', () => {
-      return new Promise(function (resolve) {
+      return new Promise(resolve => {
         resolve(input)
       })
     })
