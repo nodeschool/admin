@@ -6,6 +6,9 @@ var sinon = require('sinon')
 var chai = require('chai')
 var expect = chai.expect
 
+var chaiAsPromised = require('chai-as-promised')
+chai.use(chaiAsPromised)
+
 describe('Standard List', () => {
   var sandbox
   var input = {
@@ -56,6 +59,40 @@ describe('Standard List', () => {
     return List.run(input).then(chapters => {
       var chapter = chapters['NodeSchool Zagreb']
       return expect(chapter.twitter).to.equal('#nodeschool-zagreb')
+    })
+  })
+
+  it('should download a chapter', () => {
+    sandbox.stub(List, 'downloadChapterJson', function () {
+      return new Promise(resolve => {
+        resolve(chapter)
+      })
+    })
+    sandbox.stub(List, 'downloadEventsJson', function () {
+      return new Promise(resolve => {
+        resolve({})
+      })
+    })
+    return List.downloadChapter({}, 'Zagreb').then(chapter => {
+      return expect(chapter)
+              .to.have.all.keys('events', 'location', 'name', 'organizers', 'repo', 'twitter', 'website')
+    })
+  })
+
+  it('should check chapter timezone', () => {
+    sandbox.stub(List, 'downloadChapterJson', function () {
+      return new Promise(resolve => {
+        resolve(chapter)
+      })
+    })
+    sandbox.stub(List, 'downloadEventsJson', function () {
+      return new Promise(resolve => {
+        resolve({})
+      })
+    })
+    return List.downloadChapter({}, 'Zagreb').then(chapter => {
+      return expect(chapter)
+              .to.have.deep.property('location.timezone', 'Africa/Khartoum')
     })
   })
 })
