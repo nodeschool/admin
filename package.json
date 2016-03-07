@@ -6,8 +6,8 @@
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "validate": "npm run lint && npm test",
-    "test": "istanbul cover _mocha -- tests/**/*",
-    "fastTest": "mocha tests/**/*",
+    "test": "istanbul cover _mocha -- tests/**/*.js",
+    "fastTest": "mocha tests/**/*.js",
     "lint": "standard; markdownlint README.md CONTRIBUTING.md lib/common.help lib/chapter/event-create.help  lib/chapter/init.help",
     "start": "node bin/nodeschool-admin",
     "postinstall": "echo \"Thank you for installing 'nodeschool-admin'!\""
