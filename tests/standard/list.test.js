@@ -9,7 +9,7 @@ var chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
 
 describe('Standard List', () => {
-  var sandbox
+  var sandbox = sinon.sandbox.create()
   var input = {
     argv: { remain: [], cooked: [], original: [] },
     chapter: 'zagreb',
@@ -27,7 +27,7 @@ describe('Standard List', () => {
   var chapterRaw
   var chapter
 
-  beforeEach(function () {
+  beforeEach(() => {
     events = {'a': {
       location: {
         name: 'Fashion house',
@@ -60,36 +60,38 @@ describe('Standard List', () => {
       repo: 'https://github.com/nodeschool/zagreb',
       website: 'https://nodeschool.io/zagreb'
     }, chapterRaw)
-    sandbox = sinon.sandbox.create()
   })
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore()
   })
 
-  it('should get all the repos with new structure', () => {
-    sandbox.stub(Json, 'fromUrl', function () {
+  it('should get all the repos with the new structure', () => {
+    sandbox.stub(Json, 'fromUrl', () => {
       return Promise.resolve([team])
     })
-    sandbox.stub(Validate, 'chapter', function () {
+    sandbox.stub(Validate, 'chapter', () => {
       return Promise.resolve(true)
     })
-    sandbox.stub(Validate, 'events', function () {
+    sandbox.stub(Validate, 'events', () => {
       return Promise.resolve(true)
     })
-    sandbox.stub(List, 'downloadChapters', function () {
+    sandbox.stub(List, 'downloadChapters', () => {
       return Promise.resolve([chapter])
     })
+    sandbox.stub(List, 'downloadTeamsJson', () => {
+      return Promise.resolve([team])
+    })
     return List.run(input).then(chapters => {
-      var zagreb = chapters.find(function (chapter) {
-        return chapter.name === 'NodeSchool Zagreb'
+      var zagreb = chapters.find( chapter => {
+        return chapter.slug === 'zagreb'
       })
       return expect(zagreb.twitter).to.equal('#nodeschool-zagreb')
     })
   })
 
   it('should download the details of all chapters', () => {
-    sandbox.stub(List, 'downloadChapter', function () {
+    sandbox.stub(List, 'downloadChapter', () => {
       return Promise.resolve(chapter)
     })
     return List.downloadChapters({}, ['zagreb']).then(chapters => {
@@ -99,10 +101,10 @@ describe('Standard List', () => {
   })
 
   it('should download the events of a chapters', () => {
-    sandbox.stub(List, 'downloadChapterJson', function () {
+    sandbox.stub(List, 'downloadChapterJson', () => {
       return Promise.resolve(chapterRaw)
     })
-    sandbox.stub(Json, 'fromUrl', function () {
+    sandbox.stub(Json, 'fromUrl', () => {
       return Promise.resolve(events)
     })
     return List.downloadChapter({}, 'zagreb').then(zagreb => {
@@ -112,10 +114,10 @@ describe('Standard List', () => {
   })
 
   it('should download a chapter', () => {
-    sandbox.stub(Json, 'fromUrl', function () {
+    sandbox.stub(Json, 'fromUrl', () => {
       return Promise.resolve(chapterRaw)
     })
-    sandbox.stub(List, 'downloadEventsJson', function () {
+    sandbox.stub(List, 'downloadEventsJson', () => {
       return Promise.resolve({})
     })
     return List.downloadChapter({}, 'zagreb').then(zagreb => {
@@ -125,18 +127,30 @@ describe('Standard List', () => {
   })
 
   it('should check chapter timezone', () => {
-    sandbox.stub(List, 'downloadChapters', function () {
+    sandbox.stub(List, 'downloadChapters', () => {
       return Promise.resolve([chapter])
     })
-    sandbox.stub(List, 'downloadChapterJson', function () {
+    sandbox.stub(List, 'downloadChapterJson', () => {
       return Promise.resolve(chapter)
     })
-    sandbox.stub(List, 'downloadEventsJson', function () {
+    sandbox.stub(List, 'downloadEventsJson', () => {
       return Promise.resolve({})
     })
     return List.downloadChapter({}, 'zagreb').then(chapter => {
       return expect(chapter)
               .to.have.deep.property('location.timezone', 'Africa/Khartoum')
     })
+  })
+
+  it('should try to merge chapters without teams list', () => {
+    return expect(() => {
+      return List.mergeChaptersAndTeams([chapter], [])
+    })
+    .to.throw(Error)
+  })
+
+  it('should merge chapters and teams', () => {
+    return expect(List.mergeChaptersAndTeams([chapter], [team]))
+            .to.have.lengthOf(1);
   })
 })
