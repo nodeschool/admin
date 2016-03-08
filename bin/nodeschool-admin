@@ -5,9 +5,6 @@ var path = require('path')
 var input = nopt({
   loglevel: ['info', 'silly', 'verbose', 'http', 'warn', 'error'],
   chapter: String,
-  'gh-client-id': String,
-  'gh-client-secret': String,
-  'gh-token': String,
   'event-name': String,
   'event-location-name': String,
   'event-location-lat': String,
@@ -26,15 +23,6 @@ var input = nopt({
 
 input.path = input.path || process.cwd()
 log.level = input.loglevel || 'info'
-
-if (!input['gh-client-id'] && process.env.GITHUB_CLIENT_SECRET && process.env.GITHUB_CLIENT_ID) {
-  input['gh-client-id'] = process.env.GITHUB_CLIENT_ID
-  input['gh-client-secret'] = process.env.GITHUB_CLIENT_SECRET
-}
-
-if (!input['gh-token'] && process.env.GITHUB_TOKEN) {
-  input['gh-token'] = process.env.GITHUB_TOKEN
-}
 
 require('..').run(input)
   .then(function (output) {
