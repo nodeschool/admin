@@ -69,24 +69,16 @@ describe('Standard List', () => {
 
   it('should get all the repos with new structure', () => {
     sandbox.stub(Json, 'fromUrl', function () {
-      return new Promise(resolve => {
-        resolve([team])
-      })
+      return Promise.resolve([team])
     })
     sandbox.stub(Validate, 'chapter', function () {
-      return new Promise(resolve => {
-        resolve(true)
-      })
+      return Promise.resolve(true)
     })
     sandbox.stub(Validate, 'events', function () {
-      return new Promise(resolve => {
-        resolve(true)
-      })
+      return Promise.resolve(true)
     })
     sandbox.stub(List, 'downloadChapters', function () {
-      return new Promise(resolve => {
-        resolve([chapter])
-      })
+      return Promise.resolve([chapter])
     })
     return List.run(input).then(chapters => {
       var zagreb = chapters.find(function (chapter) {
@@ -98,9 +90,7 @@ describe('Standard List', () => {
 
   it('should download the details of all chapters', () => {
     sandbox.stub(List, 'downloadChapter', function () {
-      return new Promise(resolve => {
-        resolve(chapter)
-      })
+      return Promise.resolve(chapter)
     })
     return List.downloadChapters({}, ['zagreb']).then(chapters => {
       return expect(chapters[0])
@@ -110,14 +100,10 @@ describe('Standard List', () => {
 
   it('should download the events of a chapters', () => {
     sandbox.stub(List, 'downloadChapterJson', function () {
-      return new Promise(resolve => {
-        resolve(chapterRaw)
-      })
+      return Promise.resolve(chapterRaw)
     })
     sandbox.stub(Json, 'fromUrl', function () {
-      return new Promise(resolve => {
-        resolve(events)
-      })
+      return Promise.resolve(events)
     })
     return List.downloadChapter({}, 'zagreb').then(zagreb => {
       return expect(zagreb.events)
@@ -127,14 +113,10 @@ describe('Standard List', () => {
 
   it('should download a chapter', () => {
     sandbox.stub(Json, 'fromUrl', function () {
-      return new Promise(resolve => {
-        resolve(chapterRaw)
-      })
+      return Promise.resolve(chapterRaw)
     })
     sandbox.stub(List, 'downloadEventsJson', function () {
-      return new Promise(resolve => {
-        resolve({})
-      })
+      return Promise.resolve({})
     })
     return List.downloadChapter({}, 'zagreb').then(zagreb => {
       return expect(zagreb)
@@ -144,19 +126,13 @@ describe('Standard List', () => {
 
   it('should check chapter timezone', () => {
     sandbox.stub(List, 'downloadChapters', function () {
-      return new Promise(resolve => {
-        resolve([chapter])
-      })
+      return Promise.resolve([chapter])
     })
     sandbox.stub(List, 'downloadChapterJson', function () {
-      return new Promise(resolve => {
-        resolve(chapter)
-      })
+      return Promise.resolve(chapter)
     })
     sandbox.stub(List, 'downloadEventsJson', function () {
-      return new Promise(resolve => {
-        resolve({})
-      })
+      return Promise.resolve({})
     })
     return List.downloadChapter({}, 'zagreb').then(chapter => {
       return expect(chapter)
