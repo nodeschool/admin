@@ -1,0 +1,13 @@
+{
+  "location": {
+    "lat": 45.81444,
+    "lng": 15.97798,
+    "place": "MaMa"
+  },
+  "openTime": "10:00",
+  "openDate": "01.03.1991",
+  "endTime": "10:00",
+  "endDate": "03.03.1991",
+  "url": "http://jszgb.com",
+  "contact": "node@school.com"
+}
