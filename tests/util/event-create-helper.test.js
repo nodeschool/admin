@@ -16,15 +16,6 @@ describe('Event Create Helper', () => {
       return expect(eventCreate.loadChapter('tests/chapter.json'))
               .to.eventually.have.all.keys('location', 'name', 'region', 'twitter')
     })
-    it('should try to load events', () => {
-      // nothing on that path
-      return expect(eventCreate.loadEvents('events.json'))
-              .to.eventually.become({})
-    })
-    it('should load events', () => {
-      return expect(eventCreate.loadEvents('tests/events.json'))
-              .to.eventually.have.all.keys('NodeSchool Zagreb Kick-Off', 'NodeSchool Zagreb #2', 'NodeSchool Zagreb #3')
-    })
   })
   describe('Lat Lng check', () => {
     it('should assert Lat Lng', () => {
@@ -132,13 +123,13 @@ describe('Event Create Helper', () => {
       return expect(eventCreate.askForPosition({}, locations)).to.have.all.keys('name', 'message', 'default', 'validate')
               .and.to.have.property('name', 'newLocation.latLng')
     })
-    it('should ask for start date', () => {
-      return expect(eventCreate.askForStartDate({}, sug.suggestions)).to.have.all.keys('name', 'message', 'default', 'type', 'validate')
-              .and.to.have.property('name', 'startDate')
+    it('should ask for open date', () => {
+      return expect(eventCreate.askForOpenDate({}, sug.suggestions)).to.have.all.keys('name', 'message', 'default', 'type', 'validate')
+              .and.to.have.property('name', 'openDate')
     })
-    it('should ask for start time', () => {
-      return expect(eventCreate.askForStartTime({}, sug.suggestions)).to.have.all.keys('name', 'message', 'default', 'type', 'validate')
-              .and.to.have.property('name', 'startTime')
+    it('should ask for open time', () => {
+      return expect(eventCreate.askForOpenTime({}, sug.suggestions)).to.have.all.keys('name', 'message', 'default', 'type', 'validate')
+              .and.to.have.property('name', 'openTime')
     })
     it('should ask for end date', () => {
       return expect(eventCreate.askForEndDate()).to.have.all.keys('name', 'message', 'default', 'type', 'validate')
@@ -156,27 +147,28 @@ describe('Event Create Helper', () => {
       name: 'NodeSchool Zagreb #3',
       'location-name': 'MaMa',
       'newLocation.latLng': '45.81444/15.97798',
-      startDate: '10.06.2016',
-      startTime: '10:00',
+      openDate: '10.06.2016',
+      openTime: '10:00',
       endDate: '11.06.2016',
-      endTime: '10:00'
+      endTime: '10:00',
+      contact: 'node@school.com'
     }
 
-    it('should generate events nad check their properties', () => {
-      var e = eventCreate.generateEvent({}, eve)
-      return expect(e['NodeSchool Zagreb #3'])
-              .to.have.all.keys('location', 'startTime', 'startDate', 'endTime', 'endDate', 'url')
+    it('should generate events and check their properties', () => {
+      var e = eventCreate.generateEvent(eve)
+      return expect(e)
+              .to.have.all.keys('location', 'name', 'openTime', 'openDate', 'endTime', 'endDate', 'url', 'contact')
     })
 
     it('should generate events without location', () => {
       var ev = eve
       ev.location = undefined
-      var e = eventCreate.generateEvent({}, ev)
-      expect(e['NodeSchool Zagreb #3'])
-              .and.to.have.deep.property('location.name', 'MaMa')
-      expect(e['NodeSchool Zagreb #3'])
+      var e = eventCreate.generateEvent(ev)
+      expect(e)
+              .and.to.have.deep.property('location.place', 'MaMa')
+      expect(e)
               .and.to.have.deep.property('location.lat', 45.81444)
-      expect(e['NodeSchool Zagreb #3'])
+      expect(e)
               .and.to.have.deep.property('location.lng', 15.97798)
     })
   })

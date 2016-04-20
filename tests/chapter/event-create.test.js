@@ -12,7 +12,7 @@ var repoUtil = require('../../lib/util/repo')
 var inquire = require('../../lib/util/inquire')
 var fs = require('../../lib/util/fs')
 var eventCreateHelper = require('../../lib/util/event-create-helper')
-var events = require('../events.json')
+var events = require('../event.json')
 var chapter = require('../chapter.json')
 
 describe('Event Create', () => {
@@ -29,11 +29,6 @@ describe('Event Create', () => {
         resolve(chapter)
       })
     })
-    sandbox.stub(eventCreateHelper, 'loadEvents', () => {
-      return new Promise(resolve => {
-        resolve(events)
-      })
-    })
     sandbox.stub(inquire, 'run', () => {
       return new Promise(resolve => {
         resolve({
@@ -41,8 +36,8 @@ describe('Event Create', () => {
           name: 'NodeSchool Zagreb #5',
           'location-name': 'MaMa',
           'newLocation.latLng': '45.81444/15.97798',
-          startDate: '10.03.2017',
-          startTime: '10:00',
+          openDate: '10.03.2017',
+          openTime: '10:00',
           endDate: '20.03.2019',
           endTime: '10:00'
         })

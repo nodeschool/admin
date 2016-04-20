@@ -73,9 +73,6 @@ describe('Standard List', () => {
     sandbox.stub(Validate, 'chapter', () => {
       return Promise.resolve(true)
     })
-    sandbox.stub(Validate, 'events', () => {
-      return Promise.resolve(true)
-    })
     sandbox.stub(List, 'downloadChapters', () => {
       return Promise.resolve([chapter])
     })
@@ -99,19 +96,19 @@ describe('Standard List', () => {
               .to.be.deep.equals(chapter)
     })
   })
-
-  it('should download the events of a chapters', () => {
-    sandbox.stub(List, 'downloadChapterJson', () => {
-      return Promise.resolve(chapterRaw)
-    })
-    sandbox.stub(Json, 'fromUrl', () => {
-      return Promise.resolve(events)
-    })
-    return List.downloadChapter({}, 'zagreb').then(zagreb => {
-      return expect(zagreb.events)
-              .to.be.deep.equals(events)
-    })
-  })
+  // 
+  // it('should download the events of a chapters', () => {
+  //   sandbox.stub(List, 'downloadChapterJson', () => {
+  //     return Promise.resolve(chapterRaw)
+  //   })
+  //   sandbox.stub(Json, 'fromUrl', () => {
+  //     return Promise.resolve(events)
+  //   })
+  //   return List.downloadChapter({}, 'zagreb').then(zagreb => {
+  //     return expect(zagreb.events)
+  //             .to.be.deep.equals(events)
+  //   })
+  // })
 
   it('should download a chapter', () => {
     sandbox.stub(Json, 'fromUrl', () => {
