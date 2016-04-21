@@ -157,7 +157,7 @@ describe('Event Create Helper', () => {
     it('should generate events and check their properties', () => {
       var e = eventCreate.generateEvent(eve)
       return expect(e)
-              .to.have.all.keys('location', 'name', 'openTime', 'openDate', 'endTime', 'endDate', 'url', 'contact')
+              .to.have.all.keys('location', 'name', 'endTime', 'endDate', 'url', 'contact')
     })
 
     it('should generate events without location', () => {

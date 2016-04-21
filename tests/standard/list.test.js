@@ -56,7 +56,6 @@ describe('Standard List', () => {
     chapter = Object.assign({
       region: 'Europe',
       slug: 'zagreb',
-      events: {},
       repo: 'https://github.com/nodeschool/zagreb',
       website: 'https://nodeschool.io/zagreb'
     }, chapterRaw)
@@ -96,7 +95,7 @@ describe('Standard List', () => {
               .to.be.deep.equals(chapter)
     })
   })
-  // 
+  //
   // it('should download the events of a chapters', () => {
   //   sandbox.stub(List, 'downloadChapterJson', () => {
   //     return Promise.resolve(chapterRaw)

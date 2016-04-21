@@ -29,6 +29,11 @@ describe('Event Create', () => {
         resolve(chapter)
       })
     })
+    sandbox.stub(eventCreateHelper, 'validateEvent', () => {
+      return new Promise(resolve => {
+        resolve(true)
+      })
+    })
     sandbox.stub(inquire, 'run', () => {
       return new Promise(resolve => {
         resolve({
@@ -57,6 +62,6 @@ describe('Event Create', () => {
   })
   it('should run', () => {
     return expect(eventCreate.run({path: '/'}, {}))
-            .to.eventually.have.all.keys('message', 'type')
+            .to.eventually.equal(true)
   })
 })
